@@ -1,0 +1,22 @@
+body {    
+    /* background: rgba(231, 224, 218, 1); */
+    
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #FFFFFF 0%, #FFEFDF 100%);
+    /* background-repeat: no-repeat; */
+    
+
+    font-family: 'Roboto';
+}
+
+.hijau {
+    color: rgba(4, 121, 2, 1) !important;
+}
+
+.abu83 {
+    color: rgba(83, 83, 83, 1) !important;
+}
+
+.abuForm {
+    color: rgba(24, 36, 24, 0.40) !important;
+}
