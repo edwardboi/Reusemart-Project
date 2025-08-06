@@ -19,8 +19,9 @@ class Rincian_Pemesanan extends Model
         'id_barang',
         'harga_barang',
         'komisi_hunter',
-        'komisi _reusemart',
+        'komisi_reusemart',
         'bonus_penitip',
+        'rating'
     ];
 
     public function pemesanan()

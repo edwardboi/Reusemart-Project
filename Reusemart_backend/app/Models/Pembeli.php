@@ -4,11 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Pembeli extends Model
+class Pembeli extends Authenticatable
 {
-    use HasFactory, HasApiTokens;
+    use HasFactory, HasApiTokens, Notifiable;
 
     public $timestamps = false;
 
@@ -18,13 +20,19 @@ class Pembeli extends Model
 
     protected $fillable = [
         'id_pembeli',
-        'nama_pembeli',
-        'email_pembeli',
-        'password_pembeli',
+        'nama',
+        'email',
+        'password',
         'is_aktif',
         'poin_pembeli',
-        'foto_profile'
+        'foto_profile',
+        'is_aktif',
+        'fcm_token',
     ];
+
+    public function getUserType() {
+        return 'pembeli';
+    }
 
     public function alamat()
     {
@@ -48,4 +56,5 @@ class Pembeli extends Model
     {
         return $this->hasMany(Pemesanan::class, 'id_pembeli');
     }
+
 }

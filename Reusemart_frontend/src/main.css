@@ -20,3 +20,179 @@ body {
 .abuForm {
     color: rgba(24, 36, 24, 0.40) !important;
 }
+
+
+.custom-tabs .nav-link {
+    color: gray !important;
+    background-color: transparent;
+  }
+  
+.custom-tabs .nav-link.active {
+    color: white !important;
+    background-color: rgba(4, 121, 2, 1) !important;
+}
+
+thead.custom-table {
+    --bs-table-bg: rgba(4, 121, 2, 1) !important;
+    --bs-table-color: white !important;
+}
+
+.modal-header {
+    color: white !important;
+    background-color: rgba(4, 121, 2, 1) !important;
+}
+
+.modal-header .btn-close {
+    filter: invert(1) !important;
+    opacity: 1 !important;
+}
+
+.btnHijau {
+    background: rgba(4, 121, 2, 1) !important;
+    color: #fff !important;
+    border: 0;
+}
+
+.btnHijau:hover {
+    background: rgba(4, 121, 2, 0.8) !important;
+}
+
+.btnHoverHijau:hover {
+    background: rgba(4, 121, 2, 0.8) !important;
+    color: #fff !important;
+}
+
+.borderHijauBwh {
+    border-bottom: 2px solid rgba(4, 121, 2, 1) !important;
+    
+}
+
+.btnLogout {
+    background: rgba(255, 89, 89, 1) !important;
+    color: #fff !important;
+    border: 0;
+}
+
+.btnLogout:hover {
+    background: rgba(255, 89, 89, 0.8) !important;
+}
+
+.boxHijau {
+    background: rgba(4, 121, 2, 1) !important;
+    color: #fff !important;
+}
+
+.defaultBadge {
+    background: rgba(171, 172, 176, 1) !important;
+    color: #fff !important;
+}
+
+/* checkbox Hijau */
+.checkHijau {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+            
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.checkHijau:checked {
+    background-color: rgba(4, 121, 2, 1);
+    border-color: rgba(4, 121, 2, 1);
+}
+
+.checkHijau:checked::before {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.checkHijau:hover {
+    border-color: rgba(4, 121, 2, 1);
+}
+
+
+
+/* buat modal pesanan sukses */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(128, 128, 128, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.custom-modal-pemesanan-sukses {
+  background-color: white;
+  border-radius: 15px;
+  width: 400px;
+  padding: 20px;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.icon-container {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(4, 121, 2, 1);
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkmark {
+  color: white;
+  font-size: 50px;
+}
+
+.titlesukses {
+  margin-top: 60px;
+  color: rgba(4, 121, 2, 1);
+  font-weight: bold;
+}
+
+.transaksi {
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
+
+.deskripsisukses {
+  font-size: 14px;
+  color: #444;
+  margin: 10px 0;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: rgba(4, 121, 2, 1); 
+  padding: 20px;
+  border-radius: 50%;
+}
+
+.swiper-pagination-bullet-active {
+  background: rgba(4, 121, 2, 1) !important;
+}

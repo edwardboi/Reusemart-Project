@@ -5,8 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravel\Sanctum\PersonalAccessToken;
 
-class Pegawai extends Model
+class Pegawai extends Authenticatable
 {
     use HasFactory, HasApiTokens;
 
@@ -15,15 +17,27 @@ class Pegawai extends Model
 
     protected $primaryKey = 'id_pegawai';
 
+    protected $keyType = 'string';
+    public $incrementing = false;
+
     protected $fillable = [
         'id_pegawai',
         'id_jabatan',
-        'nama_pegawai',
-        'email_pegawai',
-        'password_pegawai',
+        'nama',
+        'email',
+        'password',
         'foto_profile',
-        'tanggal_lahir',    
+        'tanggal_lahir',
+        'is_aktif',
+        'createdAt',
+        'is_aktif',
+        'fcm_token',
     ];
+
+    public function getUserType() {
+        return 'pegawai';
+    }
+
 
     public function jabatan()
     {
@@ -39,7 +53,7 @@ class Pegawai extends Model
     }
 
     public function penitipanHunter(){
-        return $this->hasMany(Penitipan::class, 'id_hunter');  
+        return $this->hasMany(Penitipan::class, 'id_hunter');
     }
 
     public function penitipanQC() {
@@ -57,4 +71,6 @@ class Pegawai extends Model
     public function diskusi() {
         return $this->hasMany(Diskusi::class, 'id_pegawai');
     }
+
+
 }

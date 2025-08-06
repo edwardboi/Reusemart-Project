@@ -4,26 +4,52 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Contracts\Auth\CanResetPassword;
 
-class Organisasi extends Model
+class Organisasi extends Authenticatable
 {
-    use HasFactory, HasApiTokens;
+    use HasFactory, HasApiTokens, Notifiable;
 
     public $timestamps = false;
     public $table = 'organisasi';
     protected $primaryKey = 'id_organisasi';
+    protected $keyType = 'string';
+    public $incrementing = false;
+
     protected $fillable = [
         'id_organisasi',
-        'nama_organisasi',
-        'email_organisasi',
-        'password_organisasi',
+        'nama',
+        'email',
+        'password',
         'alamat_organisasi',
-        'foto_profile'
+        'foto_profile',
+        'createdAt',
+        'is_aktif'
     ];
 
-    public function diskusi() {
-        return $this->hasMany(Diskusi::class, 'id_organisasi');
+    public static function generateId()
+    {
+        $latestOrg = Organisasi::orderBy('id_organisasi', 'desc')->first();
+
+        if (!$latestOrg) {
+            return 'ORG1';
+        }
+
+        $lastNumber = (int) str_replace('ORG', '', $latestOrg->id_organisasi);
+
+        do {
+            $lastNumber++;
+            $newId = 'ORG' . $lastNumber;
+        } while (Organisasi::where('id_organisasi', $newId)->exists());
+
+        return $newId;
+    }
+
+    public function getUserType() {
+        return 'organisasi';
     }
 
     public function request_donasi() {
